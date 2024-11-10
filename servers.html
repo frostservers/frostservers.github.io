@@ -6,7 +6,6 @@
     <title>Frost - Minecraft Server List</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        <style>
         * {
             margin: 0;
             padding: 0;
@@ -14,171 +13,126 @@
         }
 
         body {
-            background: -webkit-linear-gradient(135deg, rgb(161, 0, 255), rgb(33, 0, 52) 96%);
-            background: -moz-linear-gradient(135deg, rgb(161, 0, 255), rgb(33, 0, 52) 96%);
             background: linear-gradient(135deg, rgb(161, 0, 255), rgb(5, 5, 5) 20%);
             font-family: 'Montserrat', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            color: #030303;
+            color: #c2c2c2;
+            margin: 0;
         }
 
         .container {
+            width: 90%;
+            max-width: 1200px;
             text-align: center;
-            max-width: 600px;
-            padding: 2rem;
-            border-radius: 10px;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            color: white;
             background: linear-gradient(90deg, #b237f0, #ff7eb3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-			margin-bottom: 1rem;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-			color: #c2c2c2;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .button {
-            padding: 0.75rem 1.5rem;
-            background-color: #e76f51;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #f4a261;
-        }
-		
-		img {
-			opacity: 0.5;
-		}
-		
-        .server-thumbnail {
-			position: relative;
-			width: 100%;
-			height: 200px; /* Adjust as needed */
-			background-size: cover;
-			background-position: center;
-			border-radius: 10px;
-			margin-bottom: 1rem;
-			display: flex;
-			align-items: flex-end;
-			overflow: hidden; /* Ensure overlay and content stay within rounded borders */
-		}
-
-		.server-thumbnail::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity for darker overlay */
-			border-radius: 10px; /* Match the border-radius of the thumbnail */
-			z-index: 1; /* Ensures overlay is above the image */
-		}
-		
-		.server-thumbnail:hover::before {
-			background-color: rgba(0, 0, 0, 0.3); /* Darken overlay on hover */
-		}
-
-		.server-details {
-			position: left;
-			z-index: 2;
-			color: white; /* Change text color to contrast better */
-			padding: 1rem;
-			width: 100%;
-			border-radius: 10 10 10px 10px;
-			background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
-		}
-
-	
-		.server-name {
-			font-size: 1.2rem;
-			margin-bottom: 0.5rem;
-		}
-
-		.server p {
-			margin: 0.25rem 0;
-			font-size: 0.9rem;
-		}
-		
-        .server h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-			background: linear-gradient(90deg, #b237f0, #ff7eb3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-			margin-bottom: 1rem;
-        }
-		
-        .comments {
-            margin-top: 5rem;
-			background: rgb(62,0,71);
-            background: linear-gradient(68deg, rgba(62,0,71,1) 0%, rgba(25,0,62,1) 100%);
-            padding: 5rem;
+        .server-card {
+            position: relative;
+            background-color: #2b2b36;
             border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .comment {
-            margin-bottom: 1rem;
+
+        .server-card:hover {
+            transform: scale(1.05);
         }
+
+        .server-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .server-info {
+            padding: 15px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .server-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .server-description {
+            color: #bbb;
+            font-size: 0.9em;
+            margin: 8px 0;
+        }
+
+        .player-count {
+            font-size: 0.85em;
+            color: #e76f51;
+        }
+
         .comments {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 10px;
+            display: none;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #333;
+            width: 100%;
+            text-align: left;
         }
-        .comment {
-            margin-bottom: 0.5rem;
-        }
+
         .add-comment {
-            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
         }
+
         .add-comment input {
             padding: 0.3rem;
             width: 80%;
             margin-right: 0.5rem;
-            border: 0px solid #ccc;
+            border: 1px solid #ccc;
             border-radius: 5px;
-			background-color: rgba(255, 0, 0, 0);
-			color: #fff;
-			font-family: 'Montserrat', sans-serif;
+            color: #333;
         }
+
         .add-comment button {
-            padding: 1rem 1rem;
+            padding: 0.3rem 0.8rem;
             background-color: #e76f51;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-			background-color: rgba(255, 0, 0, 0);
-			font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Minecraft Server List</h1>
-        <div id="server-list"></div>
-		<p>To add your server on this website, DM <b>@npxcd</b> on <b>Discord</b></p>
+        <div class="grid" id="server-list"></div>
+        <p>To add your server on this website, DM <b>@npxcd</b> on <b>Discord</b></p>
     </div>
 
     <!-- Firebase Configuration -->
@@ -207,18 +161,16 @@
                     const serverData = childSnapshot.val();
                     const serverId = childSnapshot.key;
                     const serverDiv = document.createElement("div");
-                    serverDiv.classList.add("server");
+                    serverDiv.classList.add("server-card");
 
                     serverDiv.innerHTML = `
-                        <div class="server-thumbnail" style="background-image: url('${serverData.thumbnail}');">
-                            <div class="server-details">
-                                <h2 class="server-name" data-server-id="${serverId}">${serverData.name}</h2>
-                                <p>IP: <strong>${serverData.ip}</strong></p>
-                                <p>${serverData.description}</p>
-                                <p>Players Online: <span id="player-count-${serverId}">Loading...</span></p>
-                            </div>
+                        <div class="server-image" style="background-image: url('${serverData.thumbnail}');"></div>
+                        <div class="server-info">
+                            <h2 class="server-name" data-server-id="${serverId}">${serverData.name}</h2>
+                            <p class="server-description">${serverData.description}</p>
+                            <p class="player-count">Players Online: <span id="player-count-${serverId}">Loading...</span></p>
                         </div>
-                        <div class="comments" id="comments-${serverId}" style="display: none;">
+                        <div class="comments" id="comments-${serverId}">
                             <div class="add-comment">
                                 <input type="text" id="comment-input-${serverId}" placeholder="Add a comment..." />
                                 <button onclick="addComment('${serverId}')">Submit</button>
