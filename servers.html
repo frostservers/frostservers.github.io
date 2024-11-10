@@ -38,6 +38,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+		
+		h {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            background: #ffffff;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         .grid {
             display: grid;
@@ -47,7 +57,8 @@
 
         .server-card {
             position: relative;
-            background-color: #2b2b36;
+            background: rgb(62,0,71);
+			background: linear-gradient(68deg, rgba(62,0,71,1) 0%, rgba(25,0,62,1) 100%);
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.2s;
@@ -125,13 +136,50 @@
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
         }
+		
+		hr {
+            opacity: 0;
+	    }
+		
+		.decotext {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #b237f0, #ff7eb3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+			margin-bottom: 1rem;
+        }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Minecraft Server List</h1>
+        <h>best <span class="decotext">servers</span></h>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
         <div class="grid" id="server-list"></div>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
+		<hr>
         <p>To add your server on this website, DM <b>@npxcd</b> on <b>Discord</b></p>
     </div>
 
@@ -233,7 +281,7 @@
             }
 
             const commentData = {
-                username: "Anonymous", // Replace with actual username if available
+                username: "Anonymous",
                 text: commentText
             };
 
