@@ -342,7 +342,7 @@
 		function openModal(serverData, serverId) {
             modalServerId = serverId;
             document.getElementById("modal-server-name").textContent = serverData.name;
-            document.getElementById("modal-server-ip").textContent = `IP: <span class="decotext">${serverData.ip}</span>`;
+            document.getElementById("modal-server-ip").innerHTML = `IP: <span class="decotext">${serverData.ip}</span>`;
             document.getElementById("modal-server-description").textContent = serverData.description;
             
             const modal = document.getElementById("server-modal");
