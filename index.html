@@ -93,14 +93,14 @@
         .server-thumbnail {
 			position: relative;
 			width: 100%;
-			height: 200px; /* Adjust as needed */
+			height: 200px;
 			background-size: cover;
 			background-position: center;
 			border-radius: 10px;
 			margin-bottom: 1rem;
 			display: flex;
 			align-items: flex-end;
-			overflow: hidden; /* Ensure overlay and content stay within rounded borders */
+			overflow: hidden;
 		}
 
 		.server-thumbnail::before {
@@ -110,23 +110,23 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity for darker overlay */
-			border-radius: 10px; /* Match the border-radius of the thumbnail */
-			z-index: 1; /* Ensures overlay is above the image */
+			background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 10px;
+			z-index: 1;
 		}
 		
 		.server-thumbnail:hover::before {
-			background-color: rgba(0, 0, 0, 0.3); /* Darken overlay on hover */
+			background-color: rgba(0, 0, 0, 0.3);
 		}
 
 		.server-details {
 			position: left;
 			z-index: 2;
-			color: white; /* Change text color to contrast better */
+			color: white;
 			padding: 1rem;
 			width: 100%;
 			border-radius: 10 10 10px 10px;
-			background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+			background-color: rgba(0, 0, 0, 0);
 		}
 
 	
